@@ -11,7 +11,7 @@ pipeline {
                                   extensions: [], 
                                   submoduleCfg: [], 
                                   userRemoteConfigs: [[credentialsId: 'Jenkins_credentials',
-                                  url: 'https://github.com/admin-2013/pune-barclays.git']]])             
+                                  url: 'https://github.com/HariReddy910/Devops.git']]])             
                  }
                           }
        stage("Build"){
