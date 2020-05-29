@@ -1,94 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
 </head>
+
 <body>
-
-    <div class="main">
-
-        <div class="container">
-            <div class="booking-content">
-                <div class="booking-image">
-                    <img class="booking-img" src="images/form-img.jpg" alt="Booking Image">
-                </div>
-                <div class="booking-form">
-                    <form id="booking-form">
-                        <h2>Booking place for your dinner!</h2>
-                        <div class="form-group form-input">
-                            <input type="text" name="name" id="name" value="" required/>
-                            <label for="name" class="form-label">Your name</label>
+    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration Info</h2>
+                    <form method="POST">
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Name" name="name">
                         </div>
-                        <div class="form-group form-input">
-                            <input type="number" name="phone" id="phone" value="" required />
-                            <label for="phone" class="form-label">Your phone number</label>
+                        <div class="input-group">
+                            <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                         </div>
-                        <div class="form-group">
-                            <div class="select-list">
-                                <select name="time" id="time" required>
-                                    <option value="">Time</option>
-                                    <option value="6pm">6:00 PM</option>
-                                    <option value="7pm">7:00 PM</option>
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="gender">
+                                    <option disabled="disabled" selected="selected">Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
                                 </select>
+                                <div class="select-dropdown"></div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="select-list">
-                                <select name="food" id="food" required>
-                                    <option value="">Food</option>
-                                    <option value="seasonalfish">Seasonal steamed fish</option>
-                                    <option value="assortedmushrooms">Assorted mushrooms</option>
-                                </select>
-                            </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="email" placeholder="Email" name="email">
                         </div>
-                        <div class="form-radio">
-                            <label class="label-radio"> Select Your Dining Space</label>
-                            <div class="radio-item-list">
-                                <span class="radio-item">
-                                    <input type="radio" name="number_people" value="2" id="number_people_2" />
-                                    <label for="number_people_2">2</label>
-                                </span>
-                                <span class="radio-item active">
-                                    <input type="radio" name="number_people" value="4" id="number_people_4" checked="checked" />
-                                    <label for="number_people_4">4</label>
-                                </span>
-                                <span class="radio-item">
-                                    <input type="radio" name="number_people" value="6" id="number_people_6" />
-                                    <label for="number_people_6">6</label>
-                                </span>
-                                <span class="radio-item">
-                                    <input type="radio" name="number_people" value="8" id="number_people_8" />
-                                    <label for="number_people_8">8</label>
-                                </span>
-                                <span class="radio-item">
-                                    <input type="radio" name="number_people" value="10" id="number_people_10" />
-                                    <label for="number_people_10">10</label>
-                                </span>
-                            </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Phone" name="phone">
                         </div>
-
-                        <div class="form-submit">
-                            <input type="submit" value="Book now" class="submit" id="submit" name="submit" />
-                            <a href="#" class="vertify-booking">Verify your booking info from your phone</a>
+                        <div class="p-t-10">
+                            <button class="btn btn--pill btn--green" type="submit">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- JS -->
+    <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
+<!-- end document-->
