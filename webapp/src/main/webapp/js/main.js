@@ -1,76 +1,69 @@
 (function($) {
 
-    $( "#birth_date" ).datepicker({
-        dateFormat: "mm - dd - yy",
-        showOn: "both",
-        buttonText : '<i class="zmdi zmdi-calendar-alt"></i>',
-    });
+  $('#meal_preference').parent().append('<ul class="list-item" id="newmeal_preference" name="meal_preference"></ul>');
+  $('#meal_preference option').each(function(){
+      $('#newmeal_preference').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
+  });
+  $('#meal_preference').remove();
+  $('#newmeal_preference').attr('id', 'meal_preference');
+  $('#meal_preference li').first().addClass('init');
+  $("#meal_preference").on("click", ".init", function() {
+      $(this).closest("#meal_preference").children('li:not(.init)').toggle();
+  });
+  
+  var allOptions = $("#meal_preference").children('li:not(.init)');
+  $("#meal_preference").on("click", "li:not(.init)", function() {
+      allOptions.removeClass('selected');
+      $(this).addClass('selected');
+      $("#meal_preference").children('.init').html($(this).html());
+      allOptions.toggle();
+  });
 
-    $('.add-info-link ').on('click', function() {
-        $('.add_info').toggle( "slow" );
-    });
-
-    $('#country').parent().append('<ul class="list-item" id="newcountry" name="country"></ul>');
-    $('#country option').each(function(){
-        $('#newcountry').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
-    });
-    $('#country').remove();
-    $('#newcountry').attr('id', 'country');
-    $('#country li').first().addClass('init');
-    $("#country").on("click", ".init", function() {
-        $(this).closest("#country").children('li:not(.init)').toggle();
-    });
-
-    $('#city').parent().append('<ul class="list-item" id="newcity" name="city"></ul>');
-    $('#city option').each(function(){
-        $('#newcity').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
-    });
-    $('#city').remove();
-    $('#newcity').attr('id', 'city');
-    $('#city li').first().addClass('init');
-    $("#city").on("click", ".init", function() {
-        $(this).closest("#city").children('li:not(.init)').toggle();
-    });
-
-    var allOptions = $("#country").children('li:not(.init)');
-    $("#country").on("click", "li:not(.init)", function() {
-        allOptions.removeClass('selected');
-        $(this).addClass('selected');
-        $("#country").children('.init').html($(this).html());
-        allOptions.toggle('slow');
-    });
-
-    var FoodOptions = $("#city").children('li:not(.init)');
-    $("#city").on("click", "li:not(.init)", function() {
-        FoodOptions.removeClass('selected');
-        $(this).addClass('selected');
-        $("#city").children('.init').html($(this).html());
-        FoodOptions.toggle('slow');
-    });
-
-    $('#signup-form').validate({
-        rules : {
-            first_name : {
-                required: true,
+  var marginSlider = document.getElementById('slider-margin');
+  if (marginSlider != undefined) {
+      noUiSlider.create(marginSlider, {
+            start: [500],
+            step: 10,
+            connect: [true, false],
+            tooltips: [true],
+            range: {
+                'min': 0,
+                'max': 1000
             },
-            last_name : {
-                required: true,
-            },
-            phone_number : {
-                required: true
-            },
-            password : {
-                required: true
-            },
-            re_password : {
-                required: true,
-                equalTo: "#password"
-            }
+            format: wNumb({
+                decimals: 0,
+                thousand: ',',
+                prefix: '$ ',
+            })
+    });
+  }
+  $('#reset').on('click', function(){
+      $('#register-form').reset();
+  });
+
+  $('#register-form').validate({
+    rules : {
+        first_name : {
+            required: true,
         },
-        onfocusout: function(element) {
-            $(element).valid();
+        last_name : {
+            required: true,
         },
-    });
+        company : {
+            required: true
+        },
+        email : {
+            required: true,
+            email : true
+        },
+        phone_number : {
+            required: true,
+        }
+    },
+    onfocusout: function(element) {
+        $(element).valid();
+    },
+});
 
     jQuery.extend(jQuery.validator.messages, {
         required: "",
