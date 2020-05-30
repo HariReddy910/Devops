@@ -49,7 +49,6 @@
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
-                 			<failOnMissingWebXml>false</failOnMissingWebXml>
           <autoVersionSubmodules>true</autoVersionSubmodules>
         </configuration>
       </plugin>
